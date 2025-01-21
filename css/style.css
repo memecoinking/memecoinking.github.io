@@ -64,9 +64,10 @@ body {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background-image: url('top1.png');
-    background-size: cover;
+    background-image: url('images/top1.png');
+    background-size: 100% auto;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
     display: flex;
@@ -89,6 +90,7 @@ body {
     z-index: 2;
     text-align: center;
     color: white;
+    width: 100%;
 }
 
 .main-title {
@@ -136,9 +138,11 @@ body {
 
 /* Tokenomics Section */
 .tokenomics {
-    background-image: url('mid1.png');
-    background-size: cover;
+    min-height: 100vh;
+    background-image: url('images/mid1.png');
+    background-size: 100% auto;
     background-position: center;
+    background-repeat: no-repeat;
     padding: 100px 0;
     position: relative;
 }
@@ -221,9 +225,11 @@ body {
 
 /* About Section */
 .about {
-    background-image: url('bottom1.png');
-    background-size: cover;
+    min-height: 100vh;
+    background-image: url('images/bottom1.png');
+    background-size: 100% auto;
     background-position: center;
+    background-repeat: no-repeat;
     padding: 100px 0;
     position: relative;
 }
@@ -332,6 +338,13 @@ body {
     }
 }
 
+/* Background Responsiveness */
+@media (max-aspect-ratio: 16/9) {
+    .hero, .tokenomics, .about {
+        background-size: auto 100%;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
@@ -357,6 +370,10 @@ body {
 
     .nav-logo, .nav-coin {
         height: 30px;
+    }
+
+    .hero, .tokenomics, .about {
+        background-attachment: scroll;
     }
 }
 
