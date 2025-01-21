@@ -1,0 +1,382 @@
+/* Global Reset and Base Styles */
+:root {
+    --primary-gold: #FFD700;
+    --secondary-gold: #DAA520;
+    --pastel-green: #98FB98;
+    --dark-pastel-green: #90EE90;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo, .nav-coin {
+    height: 40px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.nav-logo:hover, .nav-coin:hover {
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background-image: url('top1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: var(--text-shadow);
+    color: var(--primary-gold);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:not(.primary) {
+    background: var(--pastel-green);
+    color: #333;
+}
+
+.cta-button.primary {
+    background: var(--primary-gold);
+    color: #333;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Tokenomics Section */
+.tokenomics {
+    background-image: url('mid1.png');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-title {
+    color: var(--primary-gold);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: var(--text-shadow);
+    position: relative;
+    z-index: 2;
+}
+
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.token-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: cardAppear 0.5s ease forwards;
+}
+
+.card-inner {
+    padding: 2rem;
+    text-align: center;
+}
+
+.token-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.token-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-gold);
+    margin-bottom: 1rem;
+}
+
+.token-card h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.token-card ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.token-card ul li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.token-card ul li i {
+    font-size: 1rem;
+    color: var(--dark-pastel-green);
+    margin: 0;
+}
+
+.big-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-gold);
+    margin: 1rem 0;
+}
+
+/* About Section */
+.about {
+    background-image: url('bottom1.png');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.about-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all var(--transition-speed) ease;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: cardAppear 0.5s ease forwards;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-card i {
+    font-size: 2rem;
+    color: var(--secondary-gold);
+    margin-bottom: 1rem;
+}
+
+.about-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: #111;
+    padding: 3rem 0;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-coin {
+    height: 100px;
+    animation: coinRotate 10s linear infinite;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    color: var(--primary-gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.social-link:hover {
+    color: var(--pastel-green);
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 10px var(--primary-gold),
+                     0 0 20px var(--primary-gold),
+                     0 0 30px var(--secondary-gold);
+    }
+    to {
+        text-shadow: 0 0 20px var(--primary-gold),
+                     0 0 30px var(--primary-gold),
+                     0 0 40px var(--secondary-gold);
+    }
+}
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes coinRotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .token-card, .about-card {
+        margin: 0 1rem;
+    }
+
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .nav-logo, .nav-coin {
+        height: 30px;
+    }
+}
+
+/* Animation Delays for Cards */
+.token-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.token-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.about-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.about-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.about-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
